@@ -3,6 +3,8 @@ ios-sdk
 
 #Integration
 
+Download the sample project and latest Version of the SDK here in the [releases page](https://github.com/sensorberg-dev/ios-sdk/releases)
+
 See the sample project and copy all the integration from the **AppDelegate** class
 
 #DeepLinks
@@ -26,3 +28,6 @@ then intercept the **beaconEventsResolveDidFinishWithConfiguration:resolvedBeaco
 	        }
 	    }
 	}
+#Bugs
+
+If you encounter any bugs. Please [report them](https://github.com/sensorberg-dev/ios-sdk/issues)
