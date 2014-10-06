@@ -32,6 +32,11 @@
     #endif
 #endif
 
+#ifndef NS_FIX_CATEGORY_LINKER_FAILURE
+	#define NS_FIX_CATEGORY_LINKER_FAILURE(name) @interface NS_FIX_CATEGORY_LINKER_FAILURE_##name : NSObject @end \
+                                                 @implementation NS_FIX_CATEGORY_LINKER_FAILURE_##name @end
+#endif
+
 #define NON_DESIGNATED_INIT(designated_name) \
     [NSException raise:NSInternalInconsistencyException format:@"%s: non-designated initializer: instead use %@", __FUNCTION__, designated_name]; \
     return nil
