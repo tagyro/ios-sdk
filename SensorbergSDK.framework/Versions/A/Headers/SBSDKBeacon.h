@@ -28,15 +28,13 @@
 
 #import <Availability.h>
 
-#import <Mantle/Mantle.h>
-
 @class CLBeacon;
 
 /**
  The SBSDKBeacon object describes a beacon detected by the Sensorberg SDK.
  */
 NS_CLASS_AVAILABLE(NA, 7_0)
-@interface SBSDKBeacon : MTLModel
+@interface SBSDKBeacon : NSObject
 
 /**
  Beacon object.

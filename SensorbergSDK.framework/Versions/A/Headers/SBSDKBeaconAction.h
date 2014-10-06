@@ -28,8 +28,6 @@
 
 #import <Availability.h>
 
-#import <Mantle/Mantle.h>
-
 /**
  SBSDKBeaconAction
 
@@ -56,7 +54,7 @@ typedef NS_ENUM(NSInteger, SBSDKBeaconActionType) {
  The SBSDKBeaconAction object describes an action triggered by a beacon event.
  */
 NS_CLASS_AVAILABLE(NA, 7_0)
-@interface SBSDKBeaconAction : MTLModel
+@interface SBSDKBeaconAction : NSObject
 
 /**
  The raw action object holding information what kind of action should be triggered.

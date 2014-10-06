@@ -28,8 +28,6 @@
 
 #import <Availability.h>
 
-#import <Mantle/Mantle.h>
-
 #pragma mark -
 
 /**
@@ -37,7 +35,7 @@
  Management Platform into useable objects.
  */
 NS_CLASS_AVAILABLE(NA, 7_0)
-@interface SBSDKAPIResponseObject : MTLModel
+@interface SBSDKAPIResponseObject : NSObject
 
 /**
  Actual response returned from the REST call to the Sensorberg Beacon Management Platform.

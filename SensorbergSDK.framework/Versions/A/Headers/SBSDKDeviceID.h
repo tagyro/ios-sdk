@@ -28,15 +28,13 @@
 
 #import <Availability.h>
 
-#import <Mantle/Mantle.h>
-
 /**
  The SBSDKDeviceID object return a UUID for the current device.
  
  The UUID will change with every reinstallation of the app.
  */
 NS_CLASS_AVAILABLE(NA, 7_0)
-@interface SBSDKDeviceID : MTLModel
+@interface SBSDKDeviceID : NSObject
 
 /**
  UUID for the current device.
