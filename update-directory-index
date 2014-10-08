@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm index.html
+
+echo Updating the listing index for the Sensorberg SDK for iOS...
+
+echo -e "<html><body><h1>Sensorberg SDK for iOS</h1><h2>Documentation</h2><hr/><pre>" > ./index.html 2>&1
+ls -1rdA */ | awk '{ printf "<a href=\"%s\">Version %s</a><br/>", $1, $1 }' | sed 's/\///g' >> ./index.html 2>&1
+echo -e "</pre></body></html>" >> ./index.html 2>&1
+
