@@ -1,4 +1,4 @@
-SENSORBERGSDK_VERSION_STRING = 0.7.0
+SENSORBERGSDK_VERSION_STRING = 0.7.1
 OTHER_LDFLAGS = $(inherited) -ObjC -framework CoreBluetooth -framework CoreGraphics -framework CoreLocation -framework Foundation -framework MobileCoreServices -framework Security -framework SystemConfiguration SENSORBERGSDK_VERSION="@\""$(SENSORBERGSDK_VERSION_STRING)"\""
 CLANG_ENABLE_MODULES = 1
 CLANG_MODULES_AUTOLINK = 1

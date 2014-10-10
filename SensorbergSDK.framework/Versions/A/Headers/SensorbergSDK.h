@@ -24,8 +24,13 @@
 //  THE SOFTWARE.
 //
 
-@import Foundation;
+@import CoreBluetooth;
+@import CoreGraphics;
 @import CoreLocation;
+@import Foundation;
+@import MobileCoreServices;
+@import Security;
+@import SystemConfiguration;
 
 #import <Availability.h>
 
@@ -39,6 +44,4 @@
 #import "SBSDKNetworkManager.h"
 
 #import "SBSDKBeacon.h"
-#import "SBSDKBeaconAction.h"
 #import "SBSDKBeaconEvent.h"
-#import "SBSDKDeviceID.h"
