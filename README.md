@@ -1,33 +1,25 @@
-ios-sdk
-=======
+# SensorbergSDK
 
-#Integration
+## Usage
 
-Download the sample project and latest Version of the SDK here in the [releases page](https://github.com/sensorberg-dev/ios-sdk/releases)
+To run the example project, clone the repo, and open the Xcode project in the Example directory.
 
-See the sample project and copy all the integration from the **AppDelegate** class
+## Requirements
 
-#DeepLinks
+The Sensorberg SDK requires iOS 7.0.
 
-Configure your action with your deeplink URL in the Beacon Manager Web interface. For instance
-	
-	myApp://myDeepLinkName
-	
-then intercept the **beaconEventsResolveDidFinishWithConfiguration:resolvedBeaconEvents:** method and insert your custom deep link logic as shown in this sample code:
+## Installation
 
-	- (void)beaconEventsResolveDidFinishWithConfiguration:(SBBeaconEventsResolveConfiguration *)configuration resolvedBeaconEvents:(NSArray *)resolvedBeaconEvents {
-	    for (SBResolvedBeaconEvent *resolvedBeaconEvent in resolvedBeaconEvents) {
-	        NSURL *url = nil;
-	        if ([resolvedBeaconEvent.action dataToBody:&body subject:&subject url:&url error:nil]){
-	            if ([[url scheme] isEqualToString:@"myApp"]) {
-	                //handle the deeplink
-	            }
-	            else{
-	               [[SBBeaconManager sharedBeaconManager].resolvedBeaconEventPresenter presentFromResolvedBeaconEvents:@[ resolvedBeaconEvent ]];
-	            }
-	        }
-	    }
-	}
+SensorbergSDK uses [CocoaPods](http://cocoapods.org).
+
+To install it, simply add the following line to your Podfile:
+
+    pod "SensorbergSDK", "~> 0.7.0"
+
+## Author
+
+Max Horvath, max@sensorberg.com
+
 #Bugs
 
-If you encounter any bugs. Please [report them](https://github.com/sensorberg-dev/ios-sdk/issues)
+If you encounter any bugs. Please [report them](https://github.com/sensorberg-dev/ios-sdk/issues).
