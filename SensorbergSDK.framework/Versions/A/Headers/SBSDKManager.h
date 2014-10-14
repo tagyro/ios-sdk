@@ -377,6 +377,13 @@ NS_CLASS_AVAILABLE(NA, 7_0)
  */
 - (void)startMonitoringBeacons __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
 
+/**
+ Stops monitoring all beacons that are managed via the Sensorberg Beacon Management Platform.
+
+ This is done asynchronously.
+ */
+- (void)stopMonitoringBeacons __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+
 ///----------------
 /// @name Constants
 ///----------------
