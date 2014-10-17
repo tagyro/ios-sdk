@@ -17,8 +17,7 @@ Pod::Spec.new do |s|
   s.frameworks              = "CoreBluetooth", "CoreGraphics", "CoreLocation", "Foundation", "MobileCoreServices", "Security", "SystemConfiguration"
 
   s.requires_arc            = true
-  s.compiler_flags          = { "CLANG_ENABLE_MODULES" => "1",
-                                "CLANG_MODULES_AUTOLINK" => "1" }
+  
   s.xcconfig                = { "OTHER_LDFLAGS" => "$(inherited) -ObjC",
                                 "GCC_PREPROCESSOR_DEFINITIONS" => %{$(inherited) SENSORBERGSDK_VERSION="@\\"#{s.version}\\""} }
 end
