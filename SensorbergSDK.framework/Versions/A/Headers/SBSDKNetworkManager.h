@@ -24,9 +24,8 @@
 //  THE SOFTWARE.
 //
 
-@import Foundation;
-
 #import <Availability.h>
+#import <Foundation/Foundation.h>
 
 #import "SBSDKBeaconEvent.h"
 
@@ -76,7 +75,7 @@ NS_CLASS_AVAILABLE(NA, 7_0)
 
  @return SBSDKNetworkManager object
  */
-- (instancetype)initWithApiKey:(NSString *)apiKey NS_DESIGNATED_INITIALIZER __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+- (instancetype)initWithApiKey:(NSString *)apiKey __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
 
 ///----------------
 /// @name API calls

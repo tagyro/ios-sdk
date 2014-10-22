@@ -43,12 +43,14 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSError *connectionError;
 
-    // Request permission to display notifications on iOS 8
-    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound|UIUserNotificationTypeAlert categories:nil];
+    #ifdef __IPHONE_8_0
+        // Request permission to display notifications on iOS 8
+        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+            UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound|UIUserNotificationTypeAlert categories:nil];
 
-        [application registerUserNotificationSettings:notificationSettings];
-    }
+            [application registerUserNotificationSettings:notificationSettings];
+        }
+    #endif
 
     // Bootstrap Sensorberg SDK
     self.beaconManager = [[SBSDKManager alloc] initWithDelegate:self];
@@ -128,9 +130,11 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
-    NSLog(@"%s local notification %@", __PRETTY_FUNCTION__, notificationSettings == UIUserNotificationTypeNone ? @"denied" : @"allowed");
-}
+#ifdef __IPHONE_8_0
+    - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+        NSLog(@"%s local notification %@", __PRETTY_FUNCTION__, notificationSettings == UIUserNotificationTypeNone ? @"denied" : @"allowed");
+    }
+#endif
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     NSLog(@"%s %@", __PRETTY_FUNCTION__, notification.alertBody);

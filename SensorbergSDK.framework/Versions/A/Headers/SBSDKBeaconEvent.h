@@ -24,9 +24,8 @@
 //  THE SOFTWARE.
 //
 
-@import Foundation;
-
 #import <Availability.h>
+#import <Foundation/Foundation.h>
 
 /**
  SBSDKBeaconEvent

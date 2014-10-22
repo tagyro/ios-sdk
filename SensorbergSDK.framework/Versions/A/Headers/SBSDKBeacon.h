@@ -24,9 +24,8 @@
 //  THE SOFTWARE.
 //
 
-@import CoreLocation;
-
 #import <Availability.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class CLBeacon;
 
@@ -72,6 +71,6 @@ NS_CLASS_AVAILABLE(NA, 7_0)
 
  @return SBSDKBeacon object
  */
-- (instancetype)initWithBeacon:(CLBeacon *)beacon NS_DESIGNATED_INITIALIZER __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+- (instancetype)initWithBeacon:(CLBeacon *)beacon __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
 
 @end

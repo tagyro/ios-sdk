@@ -24,14 +24,6 @@
 //  THE SOFTWARE.
 //
 
-#ifndef NS_DESIGNATED_INITIALIZER
-    #if __has_attribute(objc_designated_initializer)
-        #define NS_DESIGNATED_INITIALIZER __attribute((objc_designated_initializer))
-    #else
-        #define NS_DESIGNATED_INITIALIZER
-    #endif
-#endif
-
 #define NON_DESIGNATED_INIT(designated_name) \
     [NSException raise:NSInternalInconsistencyException format:@"%s: non-designated initializer: instead use %@", __FUNCTION__, designated_name]; \
     return nil

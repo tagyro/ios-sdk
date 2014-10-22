@@ -24,11 +24,11 @@
 //  THE SOFTWARE.
 //
 
-@import CoreBluetooth;
-@import CoreLocation;
-@import Foundation;
-
 #import <Availability.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import <CoreLocation/CoreLocation.h>
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #import "SBSDKNetworkManager.h"
 
@@ -291,13 +291,13 @@ NS_CLASS_AVAILABLE(NA, 7_0)
 ///---------------------
 
 /**
- Initializer of the SBSDKManager object.
+ Designated initializer of the SBSDKManager object.
 
  @param delegate Delegate for SBSDKManager.
 
  @return SBSDKManager object.
  */
-- (instancetype)initWithDelegate:(id<SBSDKManagerDelegate>)delegate NS_DESIGNATED_INITIALIZER __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+- (instancetype)initWithDelegate:(id<SBSDKManagerDelegate>)delegate __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
 
 /**
  Initializer of the SBSDKManager object, if you want to re-use a CLLocationManager object.

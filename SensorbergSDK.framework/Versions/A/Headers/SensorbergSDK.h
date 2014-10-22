@@ -24,24 +24,22 @@
 //  THE SOFTWARE.
 //
 
-@import CoreBluetooth;
-@import CoreGraphics;
-@import CoreLocation;
-@import Foundation;
-@import MobileCoreServices;
-@import Security;
-@import SystemConfiguration;
-
 #import <Availability.h>
+
+#import <CoreBluetooth/CoreBluetooth.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <CoreLocation/CoreLocation.h>
+#import <Foundation/Foundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <Security/Security.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 
 #ifndef __IPHONE_7_0
     #warning "This project uses features only available in iOS SDK 7.0 and later."
 #endif
 
-#import "SBSDKMacros.h"
-
-#import "SBSDKManager.h"
-#import "SBSDKNetworkManager.h"
-
-#import "SBSDKBeacon.h"
-#import "SBSDKBeaconEvent.h"
+#import <SensorbergSDK/SBSDKMacros.h>
+#import <SensorbergSDK/SBSDKManager.h>
+#import <SensorbergSDK/SBSDKNetworkManager.h>
+#import <SensorbergSDK/SBSDKBeacon.h>
+#import <SensorbergSDK/SBSDKBeaconEvent.h>
