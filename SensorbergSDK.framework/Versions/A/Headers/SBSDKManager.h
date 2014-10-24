@@ -302,6 +302,7 @@ NS_CLASS_AVAILABLE(NA, 7_0)
 /**
  Initializer of the SBSDKManager object, if you want to re-use a CLLocationManager object.
 
+ @param delegate        Delegate for SBSDKManager.
  @param locationManager CLLocationManager object to be used.
 
  @return SBSDKManager object.
@@ -370,10 +371,6 @@ NS_CLASS_AVAILABLE(NA, 7_0)
  Sensorberg Proximity UUIDs will be used.
 
  This is done asynchronously.
-
- Delegate method manager:didRangeBeacons:inRegion: is used to retrieve found beacons.
-
- @see manager:didRangeBeacons:inRegion:
  */
 - (void)startMonitoringBeacons __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
 
@@ -426,8 +423,8 @@ typedef NS_ENUM(NSInteger, SBSDKManagerErrorCode) {
  Changes can occur because the user enabled or disabled the Bluetooth radio
  for the system as a whole.
 
- @param manager                    Beacon manager.
- @param backgroundAppRefreshStatus New backgroundAppRefreshStatus.
+ @param manager         Beacon manager.
+ @param bluetoothStatus New bluetoothStatus.
  */
 - (void)beaconManager:(SBSDKManager *)manager didChangeBluetoothStatus:(SBSDKManagerBluetoothStatus)bluetoothStatus __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
 
@@ -529,16 +526,16 @@ typedef NS_ENUM(NSInteger, SBSDKManagerErrorCode) {
 /**
  Delegate method invoked when Bluetooth is turned off.
 
- @param manager             Beacon manager.
- @param authorizationStatus Bluetooth status that caused the failure.
+ @param manager         Beacon manager.
+ @param bluetoothStatus Bluetooth status that caused the failure.
  */
 - (void)beaconManager:(SBSDKManager *)manager bluetoothDidFailWithBluetoothStatus:(SBSDKManagerBluetoothStatus)bluetoothStatus __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
 
 /**
  Delegate method invoked when using Background App Refresh is unavailable.
 
- @param manager             Beacon manager.
- @param authorizationStatus Background App Refresh status that caused the failure.
+ @param manager                    Beacon manager.
+ @param backgroundAppRefreshStatus Background App Refresh status that caused the failure.
  */
 - (void)beaconManager:(SBSDKManager *)manager backgroundAppRefreshDidFailWithBackgroundAppRefreshStatus:(SBSDKManagerBackgroundAppRefreshStatus)backgroundAppRefreshStatus __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
 

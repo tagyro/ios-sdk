@@ -88,6 +88,9 @@ NS_CLASS_AVAILABLE(NA, 7_0)
 
 /**
  Method to resolve the action for a beacon trigger.
+ 
+ @param beacon      Beacon that triggered an event.
+ @param beaconEvent Beacon event that should be resolved.
  */
 - (void)resolveBeaconActionForBeacon:(SBSDKBeacon *)beacon beaconEvent:(SBSDKBeaconEvent)beaconEvent __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
 
