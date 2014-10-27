@@ -417,6 +417,16 @@ typedef NS_ENUM(NSInteger, SBSDKManagerErrorCode) {
 @optional
 
 /**
+ Tells the delegate that the overall iBeacon readiness status for the application changed.
+
+ This method is called whenever any option that influences iBeacon readiness changes.
+
+ @param manager            Beacon manager.
+ @param availabilityStatus New availabilityStatus.
+ */
+- (void)beaconManager:(SBSDKManager *)manager didChangeAvailabilityStatus:(SBSDKManagerAvailabilityStatus)availabilityStatus __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+
+/**
  Tells the delegate that the Bluetooth status for the device changed.
 
  This method is called whenever the device's ability to use Bluetooth changes.
