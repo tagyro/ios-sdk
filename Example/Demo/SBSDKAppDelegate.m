@@ -57,7 +57,8 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
 
     [self.beaconManager requestAuthorization];
 
-    [self.beaconManager connectToBeaconManagementPlatformUsingApiKey:@"96ac04c77c99feb8c69b59351874696c64a6275e898c3f3cbea1daae9aa0a92e"
+    #error Please get an API key at https://manage.sensorberg.com/#/applications and remove this error message.
+    [self.beaconManager connectToBeaconManagementPlatformUsingApiKey:@""
                                                                error:&connectionError];
 
     if (!connectionError) {
@@ -130,12 +131,6 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
-#ifdef __IPHONE_8_0
-    - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
-        NSLog(@"%s local notification %@", __PRETTY_FUNCTION__, notificationSettings == UIUserNotificationTypeNone ? @"denied" : @"allowed");
-    }
-#endif
-
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     NSLog(@"%s %@", __PRETTY_FUNCTION__, notification.alertBody);
 
@@ -157,7 +152,17 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
     }
 }
 
+#ifdef __IPHONE_8_0
+    - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+        NSLog(@"%s local notification %@", __PRETTY_FUNCTION__, notificationSettings == UIUserNotificationTypeNone ? @"denied" : @"allowed");
+    }
+#endif
+
 #pragma mark - Optional beacon manager delegate methods
+
+- (void)beaconManager:(SBSDKManager *)manager didChangeAvailabilityStatus:(SBSDKManagerAvailabilityStatus)availabilityStatus {
+    NSLog(@"%s iBeacon readiness: %@", __PRETTY_FUNCTION__, availabilityStatus == SBSDKManagerAvailabilityStatusFullyFunctional ? @"fully functional" : @"restricted");
+}
 
 - (void)beaconManager:(SBSDKManager *)manager didChangeBluetoothStatus:(SBSDKManagerBluetoothStatus)bluetoothStatus {
     NSLog(@"%s bluetooth powered %@", __PRETTY_FUNCTION__, bluetoothStatus == SBSDKManagerBluetoothStatusPoweredOn ? @"on" : @"off");
