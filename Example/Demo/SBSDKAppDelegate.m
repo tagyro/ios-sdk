@@ -255,13 +255,13 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
     [self displayInAppMessageWithTitle:title message:message url:url actionId:actionId];
 }
 
-- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayInAppMessageWithTitle:(NSString *)title message:(NSString *)message {
+- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithTitle:(NSString *)title message:(NSString *)message {
     NSLog(@"%s event %@: %@, %@", __PRETTY_FUNCTION__, actionId, title, message);
 
     [self displayLocalNotificationWithTitle:title message:message url:nil actionId:actionId];
 }
 
-- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayInAppMessageWithTitle:(NSString *)title message:(NSString *)message url:(NSURL *)url {
+- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithTitle:(NSString *)title message:(NSString *)message url:(NSURL *)url {
     NSLog(@"%s event %@: %@, %@, %@", __PRETTY_FUNCTION__, actionId, title, message, url.absoluteString);
 
     [self displayLocalNotificationWithTitle:title message:message url:url actionId:actionId];
