@@ -625,14 +625,58 @@ typedef NS_ENUM(NSInteger, SBSDKManagerErrorCode) {
 
  This delegate method is being called when the app is in the background, for each single action
  and it asks to display a local notification.
- 
+
+ As local notification do not have a title property, the title is omitted.
+
+ @param manager  Beacon manager.
+ @param actionId Id of the beacon action.
+ @param title    Title of the beacon action.
+ @param message  Message of the beacon action.
+ */
+- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithTitle:(NSString *)title message:(NSString *)message __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+
+/**
+ Delegate method invoked when a beacon action has been resolved.
+
+ This delegate method is being called when the app is in the background, for each single action
+ and it asks to display a local notification and open an URL.
+
+ As local notification do not have a title property, the title is omitted.
+
+ @param manager  Beacon manager.
+ @param actionId Id of the beacon action.
+ @param message  Message of the beacon action.
+ @param title    Title of the beacon action.
+ @param url      URL to be visited.
+ */
+- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithTitle:(NSString *)title message:(NSString *)message url:(NSURL *)url __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+
+/**
+ Delegate method invoked when a beacon action could not be resolved.
+
+ @param manager Beacon manager.
+ @param error   If an error occurs it contains an `NSError` object
+                that describes the problem.
+ */
+- (void)beaconManager:(SBSDKManager *)manager resolveBeaconActionsDidFailWithError:(NSError *)error __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+
+///-------------------------
+/// @name Deprecated methods
+///-------------------------
+
+/**
+ Delegate method invoked when a beacon action has been resolved.
+
+ This delegate method is being called when the app is in the background, for each single action
+ and it asks to display a local notification.
+
  As local notification do not have a title property, the title is omitted.
 
  @param manager  Beacon manager.
  @param actionId Id of the beacon action.
  @param message  Message of the beacon action.
  */
-- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithMessage:(NSString *)message __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithMessage:(NSString *)message __attribute__((deprecated("Replaced by -beaconManager:didResolveBeaconActionWithId:displayLocalNotificationWithTitle:message:")));
 
 /**
  Delegate method invoked when a beacon action has been resolved.
@@ -647,15 +691,6 @@ typedef NS_ENUM(NSInteger, SBSDKManagerErrorCode) {
  @param message  Message of the beacon action.
  @param url      URL to be visited.
  */
-- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithMessage:(NSString *)message url:(NSURL *)url __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
-
-/**
- Delegate method invoked when a beacon action could not be resolved.
-
- @param manager Beacon manager.
- @param error   If an error occurs it contains an `NSError` object
-                that describes the problem.
- */
-- (void)beaconManager:(SBSDKManager *)manager resolveBeaconActionsDidFailWithError:(NSError *)error __OSX_AVAILABLE_STARTING(__MAC_TBD, __IPHONE_7_0);
+- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithMessage:(NSString *)message url:(NSURL *)url __attribute__((deprecated("Replaced by -beaconManager:didResolveBeaconActionWithId:displayLocalNotificationWithTitle:message:url:")));
 
 @end
