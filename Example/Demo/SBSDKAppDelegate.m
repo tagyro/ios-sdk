@@ -104,7 +104,7 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
 
 #pragma mark - Local Notifications
 
-- (void)displayLocalNotificationWithMessage:(NSString *)message url:(NSURL *)url actionId:(NSString *)actionId {
+- (void)displayLocalNotificationWithTitle:(NSString *)title message:(NSString *)message url:(NSURL *)url actionId:(NSString *)actionId {
     // Check if we should invalidate older versions of the local notification.
     UILocalNotification *localNotification = self.localNotifications[actionId];
 
@@ -115,7 +115,7 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
     // Construct local notification.
     localNotification = [[UILocalNotification alloc] init];
 
-    localNotification.alertBody = message;
+    localNotification.alertBody = [NSString stringWithFormat:@"%@\n%@", title, message];
     localNotification.alertAction = @"Open";
     localNotification.soundName = UILocalNotificationDefaultSoundName;
 
@@ -255,16 +255,16 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
     [self displayInAppMessageWithTitle:title message:message url:url actionId:actionId];
 }
 
-- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithMessage:(NSString *)message {
-    NSLog(@"%s event %@: %@", __PRETTY_FUNCTION__, actionId, message);
+- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayInAppMessageWithTitle:(NSString *)title message:(NSString *)message {
+    NSLog(@"%s event %@: %@, %@", __PRETTY_FUNCTION__, actionId, title, message);
 
-    [self displayLocalNotificationWithMessage:message url:nil actionId:actionId];
+    [self displayLocalNotificationWithTitle:title message:message url:nil actionId:actionId];
 }
 
-- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayLocalNotificationWithMessage:(NSString *)message url:(NSURL *)url {
-    NSLog(@"%s event %@: %@, %@", __PRETTY_FUNCTION__, actionId, message, url.absoluteString);
+- (void)beaconManager:(SBSDKManager *)manager didResolveBeaconActionWithId:(NSString *)actionId displayInAppMessageWithTitle:(NSString *)title message:(NSString *)message url:(NSURL *)url {
+    NSLog(@"%s event %@: %@, %@, %@", __PRETTY_FUNCTION__, actionId, title, message, url.absoluteString);
 
-    [self displayLocalNotificationWithMessage:message url:url actionId:actionId];
+    [self displayLocalNotificationWithTitle:title message:message url:url actionId:actionId];
 }
 
 - (void)beaconManager:(SBSDKManager *)manager resolveBeaconActionsDidFailWithError:(NSError *)error {
