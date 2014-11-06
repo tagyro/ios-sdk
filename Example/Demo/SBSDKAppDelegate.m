@@ -46,12 +46,14 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
     #ifdef __IPHONE_8_0
         // Request permission to display notifications on iOS 8
         if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-            UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound|UIUserNotificationTypeAlert categories:nil];
+            UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings
+                                                                settingsForTypes:UIUserNotificationTypeSound | UIUserNotificationTypeAlert
+                                                                categories:nil];
 
             [application registerUserNotificationSettings:notificationSettings];
         }
     #endif
-
+        
     // Bootstrap Sensorberg SDK
     self.beaconManager = [[SBSDKManager alloc] initWithDelegate:self];
 
@@ -62,7 +64,11 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
                                                                error:&connectionError];
 
     if (!connectionError) {
+        [self.beaconManager requestAuthorization];
         [self.beaconManager startMonitoringBeacons];
+
+    } else {
+        NSLog(@"there was an connection error: %@", connectionError.localizedDescription);
     }
 
     return YES;
