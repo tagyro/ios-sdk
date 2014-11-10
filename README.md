@@ -22,6 +22,14 @@ To install it, simply add the following line to your Podfile:
 
 Max Horvath, max@sensorberg.com
 
-#Bugs
+## Support
+
+If you need any technical support, please file an issue at our [GitHub repository](https://github.com/sensorberg-dev/ios-sdk/issues/new) or contact [our support](http://support.sensorberg.com/hc/en-us/requests/new).
+
+## Commercial Support
+
+Don't hesitate to let us know, how we can support you with developing awesome applications that include iBeacon functionality. Just [drop us](mailto:support@beaconinside.com) a message.
+
+## Bugs
 
 If you encounter any bugs. Please [report them](https://github.com/sensorberg-dev/ios-sdk/issues).
