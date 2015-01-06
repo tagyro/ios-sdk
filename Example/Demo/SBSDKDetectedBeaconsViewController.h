@@ -24,7 +24,7 @@
 //  THE SOFTWARE.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 #import <SensorbergSDK/SensorbergSDK.h>
 

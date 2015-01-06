@@ -212,33 +212,43 @@ NSString *const SBSDKAppDelegateAvailabilityStatusChanged = @"SBSDKAppDelegateAv
     [[NSNotificationCenter defaultCenter] postNotificationName:SBSDKAppDelegateAvailabilityStatusChanged object:self];
 }
 
-- (void)beaconManager:(SBSDKManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, [(CLBeaconRegion *) region proximityUUID].UUIDString);
-}
+#ifdef __IPHONE_7_0
+    - (void)beaconManager:(SBSDKManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+        NSLog(@"%s %@", __PRETTY_FUNCTION__, [(CLBeaconRegion *) region proximityUUID].UUIDString);
+    }
+#endif
 
 - (void)beaconManager:(SBSDKManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
     NSLog(@"%s %@: %@", __PRETTY_FUNCTION__, region, [error localizedDescription]);
 }
 
-- (void)beaconManager:(SBSDKManager *)manager didStartRangingForRegion:(CLRegion *)region {
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, [(CLBeaconRegion *) region proximityUUID].UUIDString);
-}
+#ifdef __IPHONE_7_0
+    - (void)beaconManager:(SBSDKManager *)manager didStartRangingForRegion:(CLRegion *)region {
+        NSLog(@"%s %@", __PRETTY_FUNCTION__, [(CLBeaconRegion *) region proximityUUID].UUIDString);
+    }
+#endif
 
-- (void)beaconManager:(SBSDKManager *)manager didStopRangingForRegion:(CLRegion *)region {
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, [(CLBeaconRegion *) region proximityUUID].UUIDString);
-}
+#ifdef __IPHONE_7_0
+    - (void)beaconManager:(SBSDKManager *)manager didStopRangingForRegion:(CLRegion *)region {
+        NSLog(@"%s %@", __PRETTY_FUNCTION__, [(CLBeaconRegion *) region proximityUUID].UUIDString);
+    }
+#endif
 
 - (void)beaconManager:(SBSDKManager *)manager rangingDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
     NSLog(@"%s %@: %@", __PRETTY_FUNCTION__, region, [error localizedDescription]);
 }
 
-- (void)beaconManager:(SBSDKManager *)manager didDetectBeaconEnterEventForBeacon:(CLBeacon *)beacon {
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, beacon.proximityUUID.UUIDString);
-}
+#ifdef __IPHONE_7_0
+    - (void)beaconManager:(SBSDKManager *)manager didDetectBeaconEnterEventForBeacon:(CLBeacon *)beacon {
+        NSLog(@"%s %@", __PRETTY_FUNCTION__, beacon.proximityUUID.UUIDString);
+    }
+#endif
 
-- (void)beaconManager:(SBSDKManager *)manager didDetectBeaconExitEventForBeacon:(CLBeacon *)beacon {
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, beacon.proximityUUID.UUIDString);
-}
+#ifdef __IPHONE_7_0
+    - (void)beaconManager:(SBSDKManager *)manager didDetectBeaconExitEventForBeacon:(CLBeacon *)beacon {
+        NSLog(@"%s %@", __PRETTY_FUNCTION__, beacon.proximityUUID.UUIDString);
+    }
+#endif
 
 - (void)beaconManager:(SBSDKManager *)manager didUpdateDetectedBeacons:(NSArray *)detectedBeacons {
     // This will constantly output beacon detections.

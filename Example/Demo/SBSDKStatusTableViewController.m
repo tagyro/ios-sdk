@@ -104,6 +104,10 @@
                             cell.detailTextLabel.text = @"Disabled";
                             break;
 
+                        case SBSDKManagerBluetoothStatusUnavailable:
+                            cell.detailTextLabel.text = @"Unavailable";
+                            break;
+
                         case SBSDKManagerBluetoothStatusPoweredOn:
                             cell.detailTextLabel.text = @"Enabled";
                             break;
@@ -119,6 +123,10 @@
                         case SBSDKManagerBackgroundAppRefreshStatusRestricted:
                         case SBSDKManagerBackgroundAppRefreshStatusDenied:
                             cell.detailTextLabel.text = @"Disabled";
+                            break;
+
+                        case SBSDKManagerBackgroundAppRefreshStatusUnavailable:
+                            cell.detailTextLabel.text = @"Unavailable";
                             break;
 
                         case SBSDKManagerBackgroundAppRefreshStatusAvailable:
@@ -137,6 +145,10 @@
 
                         case SBSDKManagerAuthorizationStatusUnimplemented:
                             cell.detailTextLabel.text = @"Unimplemented";
+                            break;
+
+                        case SBSDKManagerAuthorizationStatusUnavailable:
+                            cell.detailTextLabel.text = @"Unavailable";
                             break;
 
                         case SBSDKManagerAuthorizationStatusRestricted:

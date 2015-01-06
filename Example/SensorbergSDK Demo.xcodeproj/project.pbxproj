@@ -15,7 +15,7 @@
 		504EF75F19DB2F4A00580C6E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504EF75E19DB2F4A00580C6E /* SystemConfiguration.framework */; };
 		50C0E1A319C093A600B6E21F /* SBSDKDetectedBeaconsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0E1A219C093A600B6E21F /* SBSDKDetectedBeaconsViewController.m */; };
 		50C19D1A19F7D0C3002FE9DF /* SensorbergSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E318AC19E2F3C100B49973 /* SensorbergSDK.framework */; };
-		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
+		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
@@ -329,6 +329,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Demo/prefix.pch;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "SB-SDK-Demo";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -350,6 +351,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Demo/prefix.pch;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "SB-SDK-Demo";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
