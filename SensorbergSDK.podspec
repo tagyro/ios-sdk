@@ -19,7 +19,6 @@ Pod::Spec.new do |s|
   s.requires_arc            = true
 
   s.xcconfig                = { "OTHER_LDFLAGS" => "$(inherited) -ObjC -read_only_relocs suppress",
-                                "GCC_PREPROCESSOR_DEFINITIONS" => %{$(inherited) SENSORBERGSDK_VERSION="@\\"#{s.version}\\""},
                                 "CLANG_ENABLE_MODULES" => "YES",
                                 "CLANG_MODULES_AUTOLINK" => "YES" }
 end
